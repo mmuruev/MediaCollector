@@ -1,7 +1,10 @@
-package org.mediacollector.filesystem.collections;
+package org.mediacollector.filesystem.collections.node.files;
 
 import org.apache.commons.vfs.FileObject;
-import org.mediacollector.filesystem.interfaces.IMediaFileCollection;
+import org.mediacollector.filesystem.interfaces.node.files.IMediaFileCollection;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,8 +13,15 @@ import org.mediacollector.filesystem.interfaces.IMediaFileCollection;
  * Time: 20:23
  * The Class is implementing media file collection
  */
-public class CMediaFileCollection implements IMediaFileCollection
+public class CMediaFiles implements IMediaFileCollection
 {
+    private final Map<String, FileObject> mediaFiles;
+
+    public CMediaFiles()
+    {
+        mediaFiles = new HashMap<>();
+    }
+
     /**
      * Get element from collection by name
      *
@@ -21,7 +31,7 @@ public class CMediaFileCollection implements IMediaFileCollection
     @Override
     public FileObject get(String sNameMediaFile)
     {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return mediaFiles.get(sNameMediaFile);
     }
 
     /**
@@ -32,7 +42,10 @@ public class CMediaFileCollection implements IMediaFileCollection
     @Override
     public void putAll(IMediaFileCollection mediaCollection)
     {
-        //To change body of implemented methods use File | Settings | File Templates.
+        mediaFiles.clear();
+
+
+        //mediaFiles.putAll();
     }
 
     /**
@@ -43,7 +56,7 @@ public class CMediaFileCollection implements IMediaFileCollection
     @Override
     public void put(FileObject media)
     {
-        //To change body of implemented methods use File | Settings | File Templates.
+        mediaFiles.put(media.getName().getBaseName(), media);
     }
 
     /**
@@ -54,6 +67,6 @@ public class CMediaFileCollection implements IMediaFileCollection
     @Override
     public void remove(String sNameMediaFile)
     {
-        //To change body of implemented methods use File | Settings | File Templates.
+        mediaFiles.remove(sNameMediaFile);
     }
 }
