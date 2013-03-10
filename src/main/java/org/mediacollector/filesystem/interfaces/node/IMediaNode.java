@@ -1,10 +1,12 @@
 package org.mediacollector.filesystem.interfaces.node;
 
-import org.apache.commons.vfs.FileObject;
+import org.apache.commons.vfs2.FileObject;
 import org.mediacollector.filesystem.interfaces.node.files.ICoverFilesCollection;
 import org.mediacollector.filesystem.interfaces.node.files.IDescribeFilesCollection;
 import org.mediacollector.filesystem.interfaces.node.files.IMediaFileCollection;
 import org.mediacollector.filesystem.interfaces.node.files.ISubtitleFilesCollection;
+
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -48,26 +50,26 @@ public interface IMediaNode
      *
      * @return media files collection
      */
-    public IMediaFileCollection getMediaFiles();
+    public Map<String, FileObject> getMediaFiles();
 
     /**
      * Get all subtitles from this node
      *
      * @return subtitle files collection
      */
-    public ISubtitleFilesCollection getSubtitleFiles();
+    public Map<String, FileObject> getSubtitleFiles();
 
     /**
      * Get all describe files from this node
      *
      * @return describe files collection
      */
-    public IDescribeFilesCollection getDescribeFiles();
+    public Map<String, FileObject> getDescribeFiles();
 
     /**
      * Get all covers from this node
      *
      * @return cover files collection
      */
-    public ICoverFilesCollection getCoverFiles();
+    public Map<String, FileObject> getCoverFiles();
 }

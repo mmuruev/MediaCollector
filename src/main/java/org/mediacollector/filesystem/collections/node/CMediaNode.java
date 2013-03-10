@@ -1,12 +1,7 @@
 package org.mediacollector.filesystem.collections.node;
 
-import org.apache.commons.vfs.FileObject;
+import org.apache.commons.vfs2.FileObject;
 import org.mediacollector.filesystem.interfaces.node.IMediaNode;
-import org.mediacollector.filesystem.interfaces.node.files.ICoverFilesCollection;
-import org.mediacollector.filesystem.interfaces.node.files.IDescribeFilesCollection;
-import org.mediacollector.filesystem.interfaces.node.files.IMediaFileCollection;
-import org.mediacollector.filesystem.interfaces.node.files.ISubtitleFilesCollection;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,7 +46,7 @@ public class CMediaNode implements IMediaNode
     @Override
     public void setSubtitleFile(FileObject subtitleFile)
     {
-       subtitles.put(subtitleFile.getName().getBaseName(),subtitleFile);
+       subtitles.put(subtitleFile.getName().getBaseName(), subtitleFile);
     }
 
     /**
@@ -77,46 +72,45 @@ public class CMediaNode implements IMediaNode
     }
 
     /**
-     * Get all media files from this unit
+     * Get all media files from this node
      *
      * @return media files collection
      */
     @Override
-    public IMediaFileCollection getMediaFiles()
+    public Map<String, FileObject> getMediaFiles()
     {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return mediaFiles;
     }
 
     /**
-     * Get all subtitles from this unit
+     * Get all subtitles from this node
      *
      * @return subtitle files collection
      */
     @Override
-    public ISubtitleFilesCollection getSubtitleFiles()
+    public Map<String, FileObject> getSubtitleFiles()
     {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return subtitles;
     }
-
     /**
-     * Get all describe files from this unit
+     * Get all describe files from this node
      *
      * @return describe files collection
      */
     @Override
-    public IDescribeFilesCollection getDescribeFiles()
+    public Map<String, FileObject> getDescribeFiles()
     {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return descriptions;
     }
 
     /**
-     * Get all covers from this unit
+     * Get all covers from this node
      *
      * @return cover files collection
      */
     @Override
-    public ICoverFilesCollection getCoverFiles()
+    public Map<String, FileObject> getCoverFiles()
     {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return covers;
     }
 }

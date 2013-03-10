@@ -1,6 +1,6 @@
 package org.mediacollector.filesystem.collections.node.files;
 
-import org.apache.commons.vfs.FileObject;
+import org.apache.commons.vfs2.FileObject;
 import org.mediacollector.filesystem.interfaces.node.files.IMediaFileCollection;
 
 import java.util.HashMap;

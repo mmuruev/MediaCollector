@@ -9,16 +9,49 @@
     <url>http://jakarta.apache.org/commons/io/</url>
 
     <properties>
+        <commons.io.version>2.4</commons.io.version>
+        <commons.logging.version>1.1.1</commons.logging.version>
+        <commons.vfs.version>2.0</commons.vfs.version>
+
         <!-- BUILD -->
         <compiler.version>2.4</compiler.version>
-    <properties/>
+        <exec.version>1.2.1</exec.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons.io.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-vfs2</artifactId>
+            <version>${commons.vfs.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>${commons.logging.version}</version>
+        </dependency>
+
+    </dependencies>
 
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${compiler.version}</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>1.2.1</version>
+                <version>${exec.version}</version>
                 <configuration>
                     <mainClass>org.mediacollector.CApplication</mainClass>
                     <arguments>
@@ -28,38 +61,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <dependencies>
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.1</version>
-        </dependency>
-        <dependency>
-        	<groupId>commons-vfs</groupId>
-        	<artifactId>commons-vfs</artifactId>
-        	<version>20050307052300</version>
-        </dependency>
-        <dependency>
-        	<groupId>commons-logging</groupId>
-        	<artifactId>commons-logging</artifactId>
-        	<version>1.1.1</version>
-        </dependency>
-
-    </dependencies>
-    <build>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>${compiler.version}</version>
-                    <configuration>
-                        <source>1.7</source>
-                        <target>1.7</target>
-                    </configuration>
-                </plugin>
-            </plugins>
-    </build>
-
-
 </project>
